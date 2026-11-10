@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+
+        <title>Turnos - Veterinaria La Rosarina</title>
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="navbar navbar-expand-lg w-100">
+                <div class="container">
+
+                    <div>
+                        <h1>Gestión de turnos - Veterinaria La Rosarina</h1>
+                        <p>La atención que tu mascota merece</p>
+                    </div>
+
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal"
+                        aria-expanded="false"
+                        aria-label="Abrir menú">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="index.html">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="institucional.html">Institucional</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="contacto.html">Contacto</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="mascotas.html">Mascotas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="veterinarios.html">Veterinarios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="historia clínica.html">Historia clínica</a>
+                            </li>                            
+                        </ul>
+                        <button id="modoOscuro" class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0">
+                            🌙
+                        </button>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+        <main>
+
+            <!-- Seccion Formulario de turnos -->
+            <section>
+                <h2>Solicitud de turnos</h2>
+                    </div>
+                </form>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title" id="tituloFormulario">Solicitar turno</h3>
+
+                        <form id="díaTurnoForm" novalidate>
+                            <div class="row g-3">
+
+                                <div class="col-12 col-md-6">
+                                    <label for="nombreMascota" class="form-label">Nombre de la mascota</label>
+                                    <input type="text" class="form-control" id="nombreMascota" required>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                <div class="mb-3">
+                                <label for="especie" class="form-label">Especie</label>
+                                <select class="form-control" id="especie" onchange="actualizarRazas()">
+                                <option value="">Seleccione una especie</option>
+                                <option value="perro">Perro</option>
+                                <option value="gato">Gato</option>
+                                <option value="ave">Ave</option>
+                                <option value="roedor">Roedor</option>
+                                <option value="otro">Otro</option>
+                                </select>
+                </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <label for="contacto del duenio" class="form-label">Contacto del dueño</label>
+                                    <input type="text" class="form-control" id="contactoDuenio" required>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="motivo de la consulta" class="form-label">Motivo de la consulta</label>
+                                    <input type="text" class="form-control" id="motivoConsulta" required>
+                                </div>
+                            <label>edad: <input type="text" name="Edad" /></label>
+                            <br/ >
+                            <div>
+                        <h1>Elija el horario preferido</h1>
+                        <p>De acuerdo a su conveniencia</p>
+                    </div>
+                                <input id="mañana" type="radio" name="horario preferido"
+                            value="f">
+                            <label for="mañana">Mañana</label>
+                                <input id="tarde" type="radio" name="horario preferido"
+                            value="m">
+                            <label for="tarde">Tarde</label>
+
+                            </div>
+                            <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calendario Interactivo</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --dark: #333;
+            --light: #f4f7f6;
+            --today: #e1f0ff;
+        }
+
+        /* MINI CALENDARIO: Estructura compacta para integrarse sin mover elementos */
+        .mini-calendar {
+            background: #fff;
+            width: 240px; 
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: inline-block; 
+            vertical-align: top;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+        }
+
+        .calendar-header {
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+        }
+
+        .calendar-header h2 {
+            font-size: 14px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .calendar-header button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 0 5px;
+            line-height: 1;
+        }
+
+        .calendar-body {
+            padding: 10px;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 11px;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+        }
+
+        .days div {
+            padding: 5px 0;
+            margin: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.2s;
+            font-size: 11px;
+        }
+
+        .days div:hover {
+            background: #eee;
+        }
+
+        .days .empty {
+            cursor: default;
+            background: none !important;
+        }
+
+        .days .today {
+            background: var(--today);
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .days .has-event {
+            position: relative;
+        }
+
+        .days .has-event::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Puedes mover este contenedor div a cualquier sección de tu maquetación -->
+    <div class="mini-calendar">
+        <div class="calendar-header">
+            <button id="prev-btn">&lt;</button>
+            <h2 id="month-year"></h2>
+            <button id="next-btn">&gt;</button>
+        </div>
+        <div class="calendar-body">
+            <div class="weekdays">
+                <div>Do</div><div>Lu</div><div>Ma</div><div>Mi</div><div>Ju</div><div>Vi</div><div>Sá</div>
+            </div>
+            <div class="days" id="calendar-days"></div>
+        </div>
+    </div>
+
+    <script>
+        const monthYear = document.getElementById("month-year");
+        const calendarDays = document.getElementById("calendar-days");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+
+        const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        
+        let currentDate = new Date();
+        const events = JSON.parse(localStorage.getItem("calendar_events")) || {};
+
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const totalDays = new Date(year, month + 1, 0).getDate();
+
+            monthYear.innerText = `${months[month]} ${year}`;
+            calendarDays.innerHTML = "";
+
+            for (let i = 0; i < firstDayIndex; i++) {
+                const emptyDiv = document.createElement("div");
+                emptyDiv.classList.add("empty");
+                calendarDays.appendChild(emptyDiv);
+            }
+
+            for (let day = 1; day <= totalDays; day++) {
+                const dayDiv = document.createElement("div");
+                dayDiv.innerText = day;
+
+                const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+                const today = new Date();
+                if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+                    dayDiv.classList.add("today");
+                }
+
+                if (events[dateString]) {
+                    dayDiv.classList.add("has-event");
+                    dayDiv.title = events[dateString];
+                }
+
+                dayDiv.addEventListener("click", () => {
+                    const eventName = prompt(`Evento para el ${day} de ${months[month]}:`, events[dateString] || "");
+                    if (eventName !== null) {
+                        if (eventName.trim() === "") {
+                            delete events[dateString];
+                        } else {
+                            events[dateString] = eventName;
+                        }
+                        localStorage.setItem("calendar_events", JSON.stringify(events));
+                        renderCalendar();
+                    }
+                });
+
+                calendarDays.appendChild(dayDiv);
+            }
+        }
+
+        prevBtn.addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        });
+
+        nextBtn.addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        renderCalendar();
+    </script>
+
+</body>
+</html>
+
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-success" id="btnGuardar">
+                                    Guardar
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary d-none" id="btnCancelar">
+                                    Cancelar edición
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+                   <div>
+            
+                        <p>Si necesitas cambiar o cancelar el turno solicitado, por favor comunicate al celular 3414312281</p>
+                    </div>
+
+            <!-- Seccion Listado de turnos -->
+            <section>
+                <h2>Turnos registrados</h2>
+
+                <p>
+                    Total de turnos registrados:
+                    <span class="badge text-bg-success" id="totalMascotas">0</span>
+                </p>
+
+                <div class="mb-3">
+                <form action="02-destino.html" method="GET">
+                    <div class="mb-3">
+                        <label for="buscador" class="form-label visually visually-hidden">Buscar</label>
+                        <input type="search" class="form-control" id="buscador"  name="query" placeholder="Busca por mascota, dueño, color o motivo de la consulta...">
+                    </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>Mascota</th>
+                                <th>Dueño</th>
+                                <th>Color</th>
+                                <th>Edad</th>
+                                <th>Peso (kg)</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaMascotas">
+                            <!-- Las filas las genera JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>Veterinaria La Rosarina - San Lorenzo 2146, Rosario, Santa Fe</p>
+        </footer>
+
+        <!-- Modal de confirmación para eliminar -->
+        <div class="modal fade" id="modalEliminar" tabindex="-1"
+            aria-labelledby="modalEliminarTitulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEliminarTitulo">Confirmar eliminación</h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+
+                    <div class="modal-body" id="modalEliminarTexto">
+                        ¿Seguro que querés eliminar este registro?
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger"
+                            id="btnConfirmarEliminar">Eliminar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/modo-oscuro.js"></script>
+        <script src="js/mascotas.js"></script>
+
+    </body>
+
+</html>

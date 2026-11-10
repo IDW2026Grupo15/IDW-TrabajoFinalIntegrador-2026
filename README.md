@@ -1,5 +1,1 @@
-Federico Jose Rodriguez
-Lucas Samuel Beltran
-Micaela Calviño
-Nicolás Vicentín
-Silvina Soledad Aguilar
+Somos el grupo 15: Aguilar Silvina Soledad, Beltran Lucas Samuel, Calviño Micaela, Rodriguez Federico José, Vicentín Nicolás

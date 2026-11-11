@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Iniciar Sesión - Veterinaria La Rosarina</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg w-100">
+            <div class="container">
+                <div>
+                    <h1>Veterinaria La Rosarina</h1>
+                    <p>La atención que tu mascota merece</p>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto"></ul>
+                    <button id="modoOscuro" class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0">🌙</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+        <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+            <h2 class="text-center mb-4">Iniciar Sesión</h2>
+            <div id="alertaError" class="alert alert-danger d-none" role="alert"></div>
+            
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="username" placeholder="Ej: emilys" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Ej: emilyspass" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100" id="btnIngresar">Ingresar</button>
+            </form>
+            <small class="text-muted text-center d-block mt-3">Prueba: usuario <b>emilys</b> / clave <b>emilyspass</b></small>
+        </div>
+    </main>
+
+    <footer>
+        <p>Veterinaria La Rosarina - San Lorenzo 2146, Rosario, Santa Fe</p>
+    </footer>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const alertaError = document.getElementById('alertaError');
+            const btnIngresar = document.getElementById('btnIngresar');
+
+            alertaError.classList.add('d-none');
+            btnIngresar.disabled = true;
+            btnIngresar.textContent = "Verificando...";
+
+            try {
+                const res = await fetch('https://dummyjson.com/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    sessionStorage.setItem('token', data.token);
+                    sessionStorage.setItem('user', JSON.stringify(data));
+                    window.location.href = 'turnos.html';
+                } else {
+                    alertaError.textContent = data.message || 'Credenciales incorrectas.';
+                    alertaError.classList.remove('d-none');
+                }
+            } catch (err) {
+                alertaError.textContent = 'Error de conexión con el servidor.';
+                alertaError.classList.remove('d-none');
+            } finally {
+                btnIngresar.disabled = false;
+                btnIngresar.textContent = "Ingresar";
+            }
+        });
+    </script>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

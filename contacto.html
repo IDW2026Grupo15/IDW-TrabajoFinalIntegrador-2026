@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+
+        <title>Contacto - Veterinaria La Rosarina</title>
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="navbar navbar-expand-lg w-100">
+                <div class="container">
+
+                    <div>
+                        <h1>Veterinaria La Rosarina</h1>
+                        <p>La atención que tu mascota merece</p>
+                    </div>
+
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal"
+                        aria-expanded="false"
+                        aria-label="Abrir menú">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="index.html">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="institucional.html">Institucional</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="contacto.html">Contacto</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="mascotas.html">Mascotas</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="turnos.html">Turnos</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="historia clinica.html">Historia clinica</a>
+                            </li>
+                        </ul>
+                        <button id="modoOscuro" class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0">
+                            🌙
+                        </button>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+        <main>
+
+            <!-- Seccion Datos de contacto -->
+            <section>
+                <h2>Datos de contacto</h2>
+
+                <div class="row g-4">
+
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">Teléfono</h3>
+                                <p class="card-text">341 4312281</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">Email</h3>
+                                <p class="card-text">contacto@larosarina.com.ar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">Dirección</h3>
+                                <p class="card-text">
+                                    San Lorenzo 2146, Rosario, Santa Fe
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Seccion Horarios -->
+            <section>
+                <h2>Horarios de atención</h2>
+
+                <div class="alert alert-success" role="alert">
+                    <strong>Urgencias:</strong> atención disponible las 24 horas,
+                    todos los días.
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Lunes a viernes de 08:00 a 13:00hs y de 16:00 a 20:00hs.
+                        </p>
+
+                        <p class="card-text">
+                            Sábados de 09:00 a 12:00hs.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seccion Ubicacion -->
+            <section>
+                <h2>Cómo llegar</h2>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Nuestra ubicación</h3>
+
+                        <p class="card-text">
+                            Nos encontramos en San Lorenzo 2146,
+                            Rosario, Santa Fe.
+                        </p>
+
+                        <a href="https://www.google.com/maps/search/?api=1&query=San+Lorenzo+2146%2C+Rosario%2C+Santa+Fe"
+                        class="btn btn-success"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                            Ver ubicación
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seccion Formulario de contacto -->
+            <section>
+                <h2>Contactanos</h2>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <form>
+
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text"
+                                    class="form-control"
+                                    id="nombre"
+                                    placeholder="Ingresá tu nombre"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email"
+                                    class="form-control"
+                                    id="email"
+                                    placeholder="ejemplo@email.com"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="motivo" class="form-label">Motivo de consulta</label>
+                                <select class="form-select" id="motivo" required>
+                                    <option value="" selected>Seleccioná una opción</option>
+                                    <option value="turno">Solicitar un turno</option>
+                                    <option value="consulta">Consulta veterinaria</option>
+                                    <option value="vacunacion">Vacunación</option>
+                                    <option value="cirugia">Cirugía</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label">Mensaje</label>
+                                <textarea class="form-control"
+                                        id="mensaje"
+                                        rows="5"
+                                        placeholder="Escribí tu consulta..."
+                                        required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">
+                                Enviar consulta
+                            </button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>Veterinaria La Rosarina - San Lorenzo 2146, Rosario, Santa Fe</p>
+        </footer>
+
+        <script src="./js/bootstrap.bundle.min.js"></script>
+        <script>
+            const botonModo = document.getElementById("modoOscuro");
+
+            if (localStorage.getItem("modoOscuro") === "activado") {
+                document.body.classList.add("modo-oscuro");
+                botonModo.textContent = "☀️";
+            }
+
+            botonModo.addEventListener("click", function () {
+                document.body.classList.toggle("modo-oscuro");
+
+                if (document.body.classList.contains("modo-oscuro")) {
+                    localStorage.setItem("modoOscuro", "activado");
+                    botonModo.textContent = "☀️";
+                } else {
+                    localStorage.setItem("modoOscuro", "desactivado");
+                    botonModo.textContent = "🌙";
+                }
+            });
+        </script>
+
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="auth.js"></script>
+    </body>
+
+</html>

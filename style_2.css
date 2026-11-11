@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/*  Header  */
+header {
+    background-color: #355c4d;
+    padding: 18px 8%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+header div {
+    color: white;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/*  Navegación  */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/*  Main  */
+main {
+    min-height: 70vh;
+    padding: 40px 8%;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+section h2 {
+    font-size: 32px;
+    color: #243b34;
+    margin-bottom: 20px;
+}
+
+/*  Hero (solo index)  */
+.hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    padding: 60px 8%;
+    background-color: #e9f0ec;
+    border-radius: 12px;
+}
+
+.hero h2 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 0;
+    color: #243b34;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 600px;
+}
+
+.hero a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 24px;
+    background-color: #355c4d;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.hero a:hover {
+    background-color: #243b34;
+}
+
+/*  Tarjetas (servicios - equipo)  */
+section > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+article {
+    flex: 1;
+    min-width: 220px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+article h3 {
+    margin-top: 0;
+    color: #355c4d;
+    min-height: 56px;
+}
+
+/*  Imagen "Por qué elegirnos"  */
+section img {
+    width: 100%;
+    max-width: 900px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin: 0 auto 25px;
+    display: block;
+}
+
+section ul {
+    max-width: 700px;
+    margin: 0 auto;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+/*  Tabla de horarios  */
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+th, td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+thead {
+    background-color: #355c4d;
+    color: white;
+}
+
+/*  Footer  */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #222222;
+    color: white;
+}
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Turnos - Veterinaria La Rosarina</title>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg w-100">
+            <div class="container">
+                <div>
+                    <h1>Gestión de turnos</h1>
+                    <p>La atención que tu mascota merece</p>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- El menú dinámico se carga desde auth.js -->
+                    </ul>
+                    <button id="modoOscuro" class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0">🌙</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Formulario de turnos -->
+        <section>
+            <h2>Solicitud de turnos</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title" id="tituloFormulario">Solicitar turno</h3>
+                    <form id="formTurno" novalidate>
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label for="nombreMascota" class="form-label">Nombre de la mascota</label>
+                                <input type="text" class="form-control" id="nombreMascota" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="especie" class="form-label">Especie</label>
+                                <select class="form-control" id="especie" required>
+                                    <option value="">Seleccione una especie</option>
+                                    <option value="perro">Perro</option>
+                                    <option value="gato">Gato</option>
+                                    <option value="ave">Ave</option>
+                                    <option value="roedor">Roedor</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="contactoDuenio" class="form-label">Contacto del dueño</label>
+                                <input type="text" class="form-control" id="contactoDuenio" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="motivoConsulta" class="form-label">Motivo de la consulta</label>
+                                <input type="text" class="form-control" id="motivoConsulta" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="fechaTurno" class="form-label">Fecha del turno</label>
+                                <input type="date" class="form-control" id="fechaTurno" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label d-block">Horario preferido</label>
+                                <div class="form-check form-check-inline mt-2">
+                                    <input class="form-check-input" type="radio" name="horarioPreferido" id="mañana" value="Mañana" checked>
+                                    <label class="form-check-label" for="mañana">Mañana</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="horarioPreferido" id="tarde" value="Tarde">
+                                    <label class="form-check-label" for="tarde">Tarde</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-success" id="btnGuardar">Guardar Turno</button>
+                            <button type="button" class="btn btn-outline-secondary d-none" id="btnCancelar">Cancelar edición</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-3 text-muted">
+                <p>Si necesitas cambiar o cancelar el turno solicitado, por favor comunícate al celular 3414312281</p>
+            </div>
+        </section>
+
+        <!-- Sección Listado de turnos -->
+        <section>
+            <h2>Turnos registrados</h2>
+            <p>
+                Total de turnos registrados:
+                <span class="badge text-bg-success" id="totalTurnos">0</span>
+            </p>
+
+            <div class="mb-3">
+                <label for="buscador" class="form-label visually-hidden">Buscar</label>
+                <input type="search" class="form-control" id="buscador" placeholder="Buscar por mascota, dueño o motivo...">
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Mascota</th>
+                            <th>Especie</th>
+                            <th>Contacto</th>
+                            <th>Motivo</th>
+                            <th>Fecha</th>
+                            <th>Horario</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaTurnos">
+                        <!-- Las filas las genera JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Veterinaria La Rosarina - San Lorenzo 2146, Rosario, Santa Fe</p>
+    </footer>
+
+    <!-- Modal de confirmación para eliminar -->
+    <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEliminarTitulo">Confirmar eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="modalEliminarTexto">
+                    ¿Seguro que querés eliminar este turno?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnConfirmarEliminar">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="js/turnos.js"></script>
+</body>
+</html>

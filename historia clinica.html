@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+
+        <title>Historia Clínica - Veterinaria La Rosarina</title>
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="navbar navbar-expand-lg w-100">
+                <div class="container">
+
+                    <div>
+                        <h1> Historia Clínica - Veterinaria La Rosarina</h1>
+                        <p>La atención que tu mascota merece</p>
+                    </div>
+
+                    <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal"
+                        aria-expanded="false"
+                        aria-label="Abrir menú">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="index.html">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="institucional.html">Institucional</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="contacto.html">Contacto</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="mascotas.html">Mascotas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="veterinarios.html">Veterinarios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold" href="turnos.html">Turnos</a>
+                            </li>
+                        </ul>
+                        <button id="modoOscuro" class="btn btn-outline-light ms-lg-3 mt-2 mt-lg-0">
+                            🌙
+                        </button>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+        <main>
+
+            <!-- Historia Clínica -->
+            <section>
+                <h2>Historia clínica</h2>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title" id="tituloFormulario">Buscador de historia clínica</h3>
+
+                        <form id="día ingreso a veterinaria Form" novalidate>
+                            <div class="row g-3">
+
+                                <div class="col-12 col-md-6">
+                                    <label for="nombreMascota" class="form-label">Nombre de la mascota</label>
+                                    <input type="text" class="form-control" id="nombreMascota" required>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                <div class="mb-3">
+                                <label for="especie" class="form-label">Especie</label>
+                                <select class="form-control" id="especie" onchange="actualizarRazas()">
+                                <option value="">Seleccione una especie</option>
+                                <option value="perro">Perro</option>
+                                <option value="gato">Gato</option>
+                                <option value="ave">Ave</option>
+                                <option value="roedor">Roedor</option>
+                                <option value="otro">Otro</option>
+                                </select>
+                </div>
+                                </div>
+
+                                </div>
+                                <div class="col-12 col-md-6">
+                                <div class="mb-3">
+                                <label for="servicio brindado" class="form-label">Servicio brindado</label>
+                                <select class="form-control" id="servicioBrindado">
+                                <option value="">Seleccione un servicio</option>
+                                <option value="consulta">Consulta</option>
+                                <option value="vacunacion">Vacunación</option>
+                                <option value="medicina preventiva">Medicina Preventiva</option>
+                                <option value="cirugía">Cirugía</option>
+                                </select>
+                                </div>
+                                </div>
+                                </select>
+                                </div>
+                                <form action="http://www.example.com/bookings/"
+                                method="post">
+                                <label for="username">Buscar por fecha que se hizo el servicio:</label>
+                                <input type="date" name="depart" />
+                                <input type="submit" value="Submit" />
+                                </form>
+
+                            </div>
+
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-success" id="btnGuardar">
+                                    Guardar
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary d-none" id="btnCancelar">
+                                    Cancelar edición
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- Historia Clínica  Encontrada-->
+            <section>
+                <h2>Historia clínica Encontrada</h2>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title" id="tituloFormulario">Se encontró esta historia clínica</h3>
+
+                        <form id="día ingreso a veterinaria Form" novalidate>
+                            <div class="row g-3">
+
+                                <div class="col-12 col-md-6">
+                                    <label for="nombreMascota" class="form-label">Nombre de la mascota</label>
+                                    <input type="text" class="form-control" id="nombreMascota" required>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="fecha de ingreso" class="form-label">Fecha de ingreso</label>
+                                    <input type="text" class="form-control" id="fechaIngreso" required>
+                                    <div class="col-12 col-md-6">
+                                    <label for="Servicio Brindado" class="form-label">servicio brindado</label>
+                                    <input type="text" class="form-control" id="nombreMascota" required>
+                                </div>
+                                </div>
+
+
+                            <!-- Las filas las genera JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>Veterinaria La Rosarina - San Lorenzo 2146, Rosario, Santa Fe</p>
+        </footer>
+
+        <!-- Modal de confirmación para eliminar -->
+        <div class="modal fade" id="modalEliminar" tabindex="-1"
+            aria-labelledby="modalEliminarTitulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEliminarTitulo">Confirmar eliminación</h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+
+                    <div class="modal-body" id="modalEliminarTexto">
+                        ¿Seguro que querés eliminar este registro?
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger"
+                            id="btnConfirmarEliminar">Eliminar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/modo-oscuro.js"></script>
+        <script src="js/mascotas.js"></script>
+
+    </body>
+
+</html>
